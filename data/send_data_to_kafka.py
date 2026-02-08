@@ -4,12 +4,13 @@ from confluent_kafka import Producer
 from data_from_source_api.api_sources import get_source
 
 # -----SETUP KAFKA CONFIGURATION-------
-def get_kafka_producer( servers='localhost:9092' ):
+def get_kafka_producer( servers='127.0.0.1:9092' ):
     """ Initializes and returns a reliable Kafka Producer instance."""
 
     conf = {
         'bootstrap.servers': servers,
-        'client.id': 'flight-producer'
+        'client.id': 'flight-producer',
+        'message.max.bytes': 10000000,  # 10 MB
     }
     return Producer(conf)
 
