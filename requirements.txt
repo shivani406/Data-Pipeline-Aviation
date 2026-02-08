@@ -1,1 +1,4 @@
+azure-storage-blob 
 confluent-kafka
+dotenv
+requests
